@@ -3,7 +3,7 @@
 /* GENERAL STYLING */
 
 :root {
-  --themeBgColor: rgb(216, 216, 3);
+  --themeBgColor: rgb(244, 244, 244);
   --themeFgColor: #121212;
 }
 
@@ -39,39 +39,53 @@ a {
   align-items: center;
 }
 
+/* BACKGROUND IMAGE */
+.landing_pg {
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://static01.nyt.com/images/2020/01/24/multimedia/24parenting-coronaVirus-LN/24parenting-coronaVirus-superJumbo.png?quality=75&auto=webp');
+  background-attachment: fixed;
+  background-size: contain;
+}
+
 /* NAVBAR OVERALL */
 
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
   width: 100%;
   min-height: 10vh;
-  padding: 1% 10% 1% 15%;
-  border-bottom: 2px solid;
+  padding: 3% 10% 1% 10%;
+  /* border-bottom: 2px solid; */
   justify-content: space-between;
+  transition: 200ms;
+}
+
+.navbar.fill {
+  background-color: white;
+  padding: 1% 10% 1% 10%;
+  transition: 200ms;
 }
 
 /* STYLING LOGO */
 
-.logo {
-  gap: 10px;
-}
-
-.logo-img {
-  font-size: 30px;
-  font-weight: 700;
-}
-
-.logo-txt {
+.logo-txt, .logo-txt-secondary {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
+}
+
+.logo-txt-secondary {
+  display: none;
 }
 
 /* STYLING LINKS */
 
 .links {
   font-size: 1rem;
+  gap: 1.4rem;
+}
+
+.link:hover > *{
+  color: #007FFF;
 }
 
 .link:hover::before {
@@ -79,23 +93,11 @@ a {
   opacity: 1;
 }
 
-.link:hover::after {
-  transition: 500ms;
-  opacity: 1;
-}
-
-.link::after,.link::before {
+.link::before {
   transition: 200ms;
   opacity: 0;
   font-size: 20px;
-}
-
-.link::before {
-  content: '<  ';
-}
-
-.link::after {
-  content: '  />';
+  content: '🦠';
 }
 
 /* DARK/LIGHT MODE STYLING  */
@@ -104,6 +106,7 @@ a {
   transition: 200ms;
   transform: translateX(150%);
   cursor: pointer;
+  transform: translateX(-100%);
 }
 
 .darkM:hover, .lightM:hover {
@@ -134,18 +137,33 @@ a {
   display: none;
 }
 
+/* NO-FILL NAVBAR */
+
+.navbar.no-fill .darkM,
+.navbar.no-fill .lightM {
+  display: none;
+}
+
+.navbar.no-fill .logo > *, .navbar.no-fill > *, .navbar.no-fill > * > * {
+  color: var(--themeBgColor);
+}
+
 /* DARK MODE ENABLED */
 
-.hamburger.dark-enabled, .logo.dark-enabled .logo-txt, .logo.dark-enabled .logo-img{
+.hamburger.dark-enabled,
+ .navbar.fill .logo.dark-enabled .logo-txt,
+ .navbar.fill .logo.dark-enabled .logo-img,
+ .navbar.fill .logo.dark-enabled .logo-txt-secondary {
   color: var(--themeBgColor);
 }
-.navbar.dark-enabled {
+.navbar.dark-enabled.fill {
+  color: var(--themeBgColor);
+  background-color: var(--themeFgColor);
+}
+.navbar.fill .links.dark-enabled .link{
   color: var(--themeBgColor);
 }
-.links.dark-enabled .link{
-  color: var(--themeBgColor);
-}
-.darkM.dark-enabled, .lightM.dark-enabled {
+.navbar.fill .darkM.dark-enabled, .lightM.dark-enabled {
   color: var(--themeBgColor);
 }
 
@@ -153,27 +171,24 @@ a {
 
 .content {
   flex-direction: column;
-  height: 90vh;
+  height: 100vh;
   text-align: center;
 }
 
 .content > h1{
   font-size: clamp(20px, 2vw, 70px);
+  line-height: 0.8;
 }
 
 .content > * {
-  font-size: clamp(16px, 1.5vw, 20px);
+  font-size: clamp(16px, 1vw, 20px);
 }
 
 .content .statement {
   width: 70%;
 }
 
-.content.light-enabled{
-  color: var(--themeFgColor);
-}
-
-.content.dark-enabled > *, .content.dark-enabled > * > *{
+.content> *, .content.dark-enabled > * > *{
   color: var(--themeBgColor);
 }
 
@@ -181,7 +196,13 @@ a {
 
 @media (max-width: 1200px) {
   .navbar {
-    padding: 1% 10% 1% 10%;
+    padding: 3% 10% 1% 10%;
+  }
+  .logo-txt {
+    display: none;
+  }
+  .logo-txt-secondary {
+    display: flex;
   }
   .links.menu-close {
     display: none;
@@ -200,14 +221,20 @@ a {
   .links.menu-open .link {
     font-weight: 500;
   }
-  .links.menu-open.dark-enabled {
+  .navbar.fill .links.menu-open a,
+  .navbar.no-fill .links.menu-open a{
+    color: var(--themeFgColor);
+  }
+  .navbar.fill .links.menu-open.dark-enabled,
+  .navbar.no-fill .links.menu-open.dark-enabled {
     background-color: var(--themeFgColor);
   }
-  .links.menu-open.dark-enabled a{
+  .navbar.fill .links.menu-open.dark-enabled a,
+  .navbar.no-fill .links.menu-open.dark-enabled a{
     color: white;
   }
   .darkM, .lightM {
-    transform: translateX(-100%);
+    transform: translateX(-30%);
   }
   .hamburger {
     display: block;
@@ -220,7 +247,7 @@ a {
     z-index: 2;
     right: 50%;
     transform: translateX(50%);
-    top: 100%;
+    top: 50%;
     border-radius: 50%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     opacity: 0;
@@ -228,6 +255,11 @@ a {
     animation-delay: 300ms;
     background-color: white;
   }
+  .navbar.fill .menu-open-ham,
+  .navbar.no-fill .menu-open-ham {
+    color: var(--themeFgColor)
+  }
+
   .menu-open-ham.dark-enabled {
     background-color: var(--themeBgColor);
     color: var(--themeFgColor);
@@ -268,5 +300,8 @@ a {
   }
   .lightM {
     padding: 12.5px;
+  }
+  .lightM.dark-enabled {
+    color: var(--themeFgColor);
   }
 }

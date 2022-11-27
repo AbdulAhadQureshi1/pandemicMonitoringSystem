@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import {ThemeContext, UpdateTheme} from './themeContext'
 
-export default function Navbar() {
+export default function Navbar(props) {
 
   const darkMode = useContext(ThemeContext);
   const themeChange = useContext(UpdateTheme);
@@ -19,12 +19,16 @@ export default function Navbar() {
 
   document.body.style.backgroundColor = darkMode ? 'var(--themeFgColor)' : 'var(--themeBgColor)';
 
+  function fillProp () {
+    return props.fill ? 'no-fill' : 'fill'
+  }
+
   return (
-    <div className={`navbar font flex ${themeColorSwitch()}`}>
+    <div className={`navbar font flex ${themeColorSwitch()} ${fillProp()}`}>
       <a href='/'>
         <div className={`logo flex ${themeColorSwitch()}`}>
-            <span className="material-symbols-outlined logo-img">code</span>
-            <div className="logo-txt">GDSC</div>
+            <div className="logo-txt">Pandemic Monitoring System</div>
+            <div className="logo-txt-secondary">PMS</div>
         </div>
       </a>
       <span onClick={themeChange} className={`material-symbols-outlined darkM flex ${themeColorSwitch()}`}>dark_mode</span>

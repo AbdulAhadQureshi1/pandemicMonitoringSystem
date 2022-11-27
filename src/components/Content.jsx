@@ -21,11 +21,9 @@ export default function Content() {
 
   return (
     <div className={`content font flex ${themeColorSwitch()}`}>
-      <h1>Can't Sign Up To Yelp!</h1>
+      <h1>Pandemic Monitoring System</h1>
       <div className='statement'>
-        There is a problem with Yelp API, that I <strong>cannot Sign Up.</strong> For This Reason I was Unable to fetch Restaurant Data for Yelp Api.
-        The problem was conveyed to GDSC through Email, but there was <strong>No Response</strong> On Time.
-        Still the <strong>Commented Code For API Fetching</strong> is added to Application
+        Worlds #1 Monitoring System
       </div>
     </div>
   )
