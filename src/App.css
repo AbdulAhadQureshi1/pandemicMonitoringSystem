@@ -17,6 +17,7 @@ body {
   background-color: var(--themeBgColor);
   overflow-x: hidden;
   scroll-behavior: smooth;
+  transition: 300ms;
 }
 
 a {
@@ -244,6 +245,80 @@ a {
   margin-top: 15vh;
 }
 
+/* GOOGLE MAPS SECTION */
+
+.vacc-centers {
+  background-color: antiquewhite;
+  flex-direction: row;
+  padding: 5% 10%;
+  gap: 10%;
+}
+
+.vacc-centers h1 {
+  font-size: 3vw;
+}
+
+.gmap {
+  border: 2px dashed var(--themeFgColor);
+  padding: 10px;
+  width: clamp(300px, 40vw, 1000px);
+  height: clamp(300px, 70vh, 800px);
+  border-radius: 20px;
+  transition: 500ms;
+}
+
+.gmap:hover {
+  transform: scale(1.01);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  transition: 500ms;
+}
+
+.vacc-centers.dark-enabled {
+  background-color: #191919;
+}
+
+.vacc-centers.dark-enabled  .gmap{
+  border: 2px dashed var(--themeBgColor);
+}
+
+.vacc-centers.dark-enabled  .gmap:hover {
+  box-shadow: rgba(220, 200, 220, 0.25) 0px 50px 100px -20px, rgba(180, 180, 180, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.vacc-centers.dark-enabled > * > * {
+  color: var(--themeBgColor);
+}
+
+/* FOOTER  */
+
+.footer {
+  height: 30vh;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: smaller;
+  gap: 5%;
+}
+
+.footer button {
+  padding: 10px 15px;
+  border-radius: 7px;
+  border: none;
+  background-color: #007FFF;
+  color: var(--themeBgColor);
+  cursor: pointer;
+  transition: 500ms;
+}
+
+.footer button:hover {
+  transform: scale(1.1);
+  transition: 500ms;
+}
+
+.footer.dark-enabled > * {
+  color: var(--themeBgColor);
+}
+
 @keyframes slide {
   from {
     opacity: 0;
@@ -341,6 +416,23 @@ a {
     animation: none;
   }
 
+  /* Google Maps Sections */
+
+  .vacc-centers {
+    flex-direction: column;
+    gap: 5vh;
+  }
+  .vacc-centers > * > * {
+    text-align: center;
+  }
+  .vacc-centers h1 {
+    font-size: clamp(20px, 30vw, 40px);
+    line-height: 0.8;
+  }
+  .gmap {
+    width: 70%;
+  }
+
   @keyframes slide-in {
     from {
       right: -100%;
@@ -390,5 +482,10 @@ a {
   }
   .graph-2 {
     transform: translateX(0px);
+  }
+
+  /* Google Maps Section */
+  .gmap {
+    width: 100%;
   }
 }

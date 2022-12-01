@@ -7,8 +7,8 @@ import ThemeProvider from './themeContext.jsx'
 import useElementOnScreen from './ObserverHook.jsx';
 import DailyStats from './DailyStats.jsx';
 import OverallStats from './OverallStats.jsx';
-
-// const Content = lazy(()=>import('./Content.jsx'))
+import Map from './Gmaps.jsx';
+import Footer from './Footer.jsx';
 
 function App() {
 
@@ -19,16 +19,16 @@ function App() {
   })
 
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
-      <ThemeProvider>
+    <ThemeProvider>
         <div className='landing_pg' ref={containerRef}>
           <Navbar fill={isVisible}></Navbar> 
           <Content></Content>
         </div>
         <DailyStats></DailyStats>
         <OverallStats></OverallStats>
+        <Map></Map>
+        <Footer></Footer>
       </ThemeProvider>
-    </Suspense>
   )
 }
 
