@@ -6,6 +6,7 @@ import Navbar from './Navbar.jsx'
 import ThemeProvider from './themeContext.jsx'
 import useElementOnScreen from './ObserverHook.jsx';
 import DailyStats from './DailyStats.jsx';
+import OverallStats from './OverallStats.jsx';
 
 // const Content = lazy(()=>import('./Content.jsx'))
 
@@ -25,6 +26,7 @@ function App() {
           <Content></Content>
         </div>
         <DailyStats></DailyStats>
+        <OverallStats></OverallStats>
       </ThemeProvider>
     </Suspense>
   )

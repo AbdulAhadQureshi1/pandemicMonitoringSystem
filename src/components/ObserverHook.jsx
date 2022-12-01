@@ -12,7 +12,6 @@ export default function useElementOnScreen(options) {
     useEffect(()=> {
         const observer = new IntersectionObserver(callbackFunc, options)
         if (containerRef.current) observer.observe(containerRef.current)
-
         return () => {
             if (containerRef.current) observer.unobserve(containerRef.current)
         }

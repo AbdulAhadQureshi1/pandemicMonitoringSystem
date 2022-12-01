@@ -6,9 +6,10 @@ import useElementOnScreen from './ObserverHook.jsx';
 
 Chart.register(ArcElement);
 
-export default function DailyStats() {
 
-  const darkMode = useContext(ThemeContext);
+export default function OverallStats() {
+
+	const darkMode = useContext(ThemeContext);
 
   function themeColorSwitch() {
     return darkMode ? 'dark-enabled' : 'light-enabled'
@@ -81,13 +82,12 @@ export default function DailyStats() {
   
   function animateIn() {
     if(!isVisible) return 'dont';
-    return 'animate';
+		return 'animate';
   }
 
-
   return (
-    <div className={`stats flex ${themeColorSwitch()}`} id='stats'>
-      <h1 ref={containerRef} className={`stats-heading font`}>Today's Statistics</h1>
+    <div className={`overall-section stats flex ${themeColorSwitch()}`}>
+      <h1 ref={containerRef} className={`stats-heading font`}>Overall Statistics</h1>
       <div className={`graphs flex ${animateIn()}`}>
         <div className={`graph graph-1 flex`}>
           <Doughnut datasetIdKey='daily-recoveries' data={dataRecovered} />
