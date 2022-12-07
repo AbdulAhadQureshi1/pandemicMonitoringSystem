@@ -1,34 +1,32 @@
-import React, {lazy, Suspense, suspense} from 'react'
-import ReactDOM from 'react-dom';
+import React from 'react'
 import '../App.css'
-import Content from './Content';
-import Navbar from './Navbar.jsx'
 import ThemeProvider from './themeContext.jsx'
-import useElementOnScreen from './ObserverHook.jsx';
-import DailyStats from './DailyStats.jsx';
-import OverallStats from './OverallStats.jsx';
-import Map from './Gmaps.jsx';
-import Footer from './Footer.jsx';
+import Home from '../pages/home';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import useElementOnScreen from './ObserverHook';
+import Content from './Content';
+import {Routes, Route} from 'react-router-dom'
+import AdminPortal from '../pages/AdminPortal';
 
 function App() {
 
   const [containerRef, isVisible] = useElementOnScreen({
     root: null,
     rootMargin: "0px",
-    threshold: 0.75
-  })
+    threshold: 1
+})
 
   return (
     <ThemeProvider>
-        <div className='landing_pg' ref={containerRef}>
-          <Navbar fill={isVisible}></Navbar> 
-          <Content></Content>
-        </div>
-        <DailyStats></DailyStats>
-        <OverallStats></OverallStats>
-        <Map></Map>
-        <Footer></Footer>
-      </ThemeProvider>
+      <Navbar fill={isVisible}/>
+        <div ref={containerRef} className='useless'></div>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/PMS-Admin-Portal' element={<AdminPortal />} />
+        </Routes>
+        <Footer />
+    </ThemeProvider>
   )
 }
 

@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import {ThemeContext, UpdateTheme} from './themeContext'
+import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
 
@@ -36,9 +37,9 @@ export default function Navbar(props) {
       <span className={`material-symbols-outlined hamburger ${themeColorSwitch()}`} onClick={toggleMenu}>drag_handle</span>
       <span className={`material-symbols-outlined hamburger ${menuState}-ham ${themeColorSwitch()}`} onClick={toggleMenu}>close</span>
       <div className={`links flex ${menuState} ${themeColorSwitch()}`}>
-        <a href="/" className="link">Home</a>
+        <Link to="/" className="link">Home</Link>
         <a href="#stats" className="link">About</a>
-        <a href="/" className="link">Admin Portal</a>
+        <Link to="/PMS-Admin-Portal" className="link">Admin Portal</Link>
       </div>
     </div>
   )
