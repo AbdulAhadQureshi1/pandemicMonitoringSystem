@@ -26,12 +26,12 @@ export default function Navbar(props) {
 
   return (
     <div className={`navbar font flex ${themeColorSwitch()} ${fillProp()}`}>
-      <a href='/'>
+      <Link to='/'>
         <div className={`logo flex ${themeColorSwitch()}`}>
             <div className="logo-txt">Pandemic Monitoring System</div>
             <div className="logo-txt-secondary">PMS</div>
         </div>
-      </a>
+      </Link>
       <span onClick={themeChange} className={`material-symbols-outlined darkM flex ${themeColorSwitch()}`}>dark_mode</span>
       <span onClick={themeChange} className={`material-symbols-outlined lightM flex ${themeColorSwitch()}`}>light_mode</span>
       <span className={`material-symbols-outlined hamburger ${themeColorSwitch()}`} onClick={toggleMenu}>drag_handle</span>
@@ -39,7 +39,7 @@ export default function Navbar(props) {
       <div className={`links flex ${menuState} ${themeColorSwitch()}`}>
         <Link to="/" className="link">Home</Link>
         <a href="#stats" className="link">About</a>
-        <Link to="/PMS-Admin-Portal" className="link">Admin Portal</Link>
+        <Link to="/PMS-Signup" className="link">Admin Portal</Link>
       </div>
     </div>
   )

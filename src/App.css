@@ -42,6 +42,7 @@ a {
   align-items: center;
 }
 
+
 body::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -115,7 +116,7 @@ body::-webkit-scrollbar-thumb
 
 .links {
   font-size: 1rem;
-  gap: 1.4rem;
+  gap: 1rem;
 }
 
 .link:hover > *{
@@ -138,9 +139,9 @@ body::-webkit-scrollbar-thumb
 
 .darkM, .lightM {
   transition: 200ms;
-  transform: translateX(150%);
   cursor: pointer;
-  transform: translateX(-100%);
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .darkM:hover, .lightM:hover {
@@ -376,6 +377,126 @@ body::-webkit-scrollbar-thumb
     transform: translateX(0px);
   }
 }
+
+/* SIGNUP PAGE */
+.signup {
+  width: 100%;
+  height: 90vh;
+  padding-top: 15vh;
+}
+
+.card {
+  height: 70vh;
+  width: clamp(350px, 30vw, 500px);
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid gainsboro;
+  border-radius: 7px;
+  justify-content: space-between;
+  padding: 3%;
+  box-shadow: 0px 0px 26px -3px rgba(0,0,0,0.1);
+}
+
+.card header {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.form {
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  gap: 3%;
+}
+
+.form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  font-size: 15px;
+  background: transparent;
+}
+
+.input-set {
+  width: 90%;
+}
+
+.error {
+  font-size: 10px;
+  color: red;
+  border: none;
+}
+
+.submit-btn {
+  padding: 7px 20px;
+  border-radius: 20px;
+  width: 50%;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--themeBgColor);
+  background: rgb(0,127,255);
+  background: linear-gradient(90deg, rgba(0,127,255,0.8018557764902836) 0%, rgba(2,0,36,0.5) 100%);
+  opacity: 0.9;
+  transition: 500ms;
+}
+
+.submit-btn:hover {
+  background: rgb(0,127,255);
+  background: linear-gradient(90deg, rgba(0,127,255,0.9018557764902836) 0%, rgba(2,0,36,0.7) 100%);
+  opacity: 1;
+  transition: 500ms;
+  cursor: pointer;
+}
+
+.login-link {
+  color: #007FFF;
+}
+
+.card footer {
+  font-size: 14px;
+}
+
+.login.card {
+  height: 65vh;
+}
+
+.login.card .form {
+  gap: 6%;
+}
+
+.card.dark-enabled {
+  color: var(--themeBgColor);
+  background-color: rgba(44, 44, 44, 0.45);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: none;
+}
+
+.card.dark-enabled > *, .card.dark-enabled > * > * {
+  color: var(--themeBgColor);
+}
+
+.card.dark-enabled .login-link {
+  color: #007FFF;
+}
+
+.card.dark-enabled input {
+  color: var(--themeBgColor);
+}
+
+.card.dark-enabled input:focus {
+  outline: none;
+  -webkit-box-shadow:0px 0px 7px 0px rgba(45,255,196,1);
+  -moz-box-shadow: 0px 0px 7px 0px rgba(45,255,196,1);
+  box-shadow: 0px 0px 7px 0px rgba(45,255,196,1);
+}
+
+.card.dark-enabled input::placeholder {
+  color: rgb(137, 137, 137);
+}
+
 
 /* MEDIA QUERIES */
 

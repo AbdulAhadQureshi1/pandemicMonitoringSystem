@@ -16,7 +16,7 @@ export default function Content() {
         <p>Worlds #1 Monitoring System</p>
       </div>
       <div className='heroImg'>
-        <img src='../public/pandemic.png' width={'100%'} alt='vaccination'></img>
+        <img src='/pandemic.png' width={'100%'} alt='vaccination'></img>
       </div>
     </div>
   )

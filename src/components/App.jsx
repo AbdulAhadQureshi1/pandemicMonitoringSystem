@@ -5,9 +5,10 @@ import Home from '../pages/home';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import useElementOnScreen from './ObserverHook';
-import Content from './Content';
 import {Routes, Route} from 'react-router-dom'
 import AdminPortal from '../pages/AdminPortal';
+import Signup from '../pages/Signup';
+import Login from '../pages/Login';
 
 function App() {
 
@@ -24,6 +25,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/PMS-Admin-Portal' element={<AdminPortal />} />
+          <Route path='/PMS-Signup' element={<Signup />} />
+          <Route path='/PMS-Login' element={<Login />} />
         </Routes>
         <Footer />
     </ThemeProvider>
