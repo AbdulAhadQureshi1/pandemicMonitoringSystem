@@ -87,7 +87,7 @@ body::-webkit-scrollbar-thumb
   width: 100%;
   min-height: 10vh;
   padding: 3% 10% 1% 10%;
-  z-index: 2;
+  z-index: 99999;
   justify-content: space-between;
   transition: 200ms;
 }
@@ -215,6 +215,7 @@ body::-webkit-scrollbar-thumb
   transition: 500ms;
   background: rgb(0,127,255);
   background: linear-gradient(90deg, rgba(0,127,255,0.8018557764902836) 0%, rgba(2,0,36,0.7346288857339811) 100%);
+  position: relative;
 }
 
 .content .heroImg {
@@ -238,12 +239,24 @@ body::-webkit-scrollbar-thumb
   color: var(--themeFgColor);
 }
 
+.curved-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateY(60%);
+  pointer-events: none;
+}
+
 .content.dark-enabled {
   background-color: var(--themeFgColor);
 }
 
 .content.dark-enabled > * > *{
   color: var(--themeBgColor);
+}
+
+.content.dark-enabled .curved-border path {
+  fill: #121212;
 }
 
 /* STATS PORTIONS */
@@ -255,11 +268,13 @@ body::-webkit-scrollbar-thumb
 
 .stats-heading {
   text-align: center;
+  z-index: 2;
 }
 
 .graphs {
   width: 100%;
   justify-content: space-evenly;
+  z-index: 2;
 }
 
 .graph {
@@ -378,7 +393,7 @@ body::-webkit-scrollbar-thumb
   }
 }
 
-/* SIGNUP PAGE */
+/* SIGNUP PAGE AND LOGIN PAGE */
 .signup {
   width: 100%;
   height: 90vh;
@@ -474,7 +489,8 @@ body::-webkit-scrollbar-thumb
   border: none;
 }
 
-.card.dark-enabled > *, .card.dark-enabled > * > * {
+.card.dark-enabled > *,
+.card.dark-enabled > * > * {
   color: var(--themeBgColor);
 }
 
@@ -497,6 +513,156 @@ body::-webkit-scrollbar-thumb
   color: rgb(137, 137, 137);
 }
 
+/* ADMIN PORTAL STYLES */
+
+.admin-portal {
+  padding: 10vh 10%;
+}
+
+.admin-portal > header h1 {
+  text-align: center;
+  font-size: clamp(40px, 3vw, 70px);
+}
+
+.admin.card {
+  width: 100%;
+  height: auto;
+  background-color: transparent;
+  box-shadow: none;
+  border: 2px solid var(--themeFgColor);
+}
+
+.input-field {
+  width: 91.6%;
+  border-radius: 20px;
+  font-size: 15px;
+  font-family: 'Poppins', sans-serif;
+  padding: 5px 15px;
+  border: 1px solid gainsboro;
+  background-color: transparent;
+  border: none;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.admin.card .input-field:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 2px #004e9c83;
+}
+
+.search {
+  padding: 0px;
+  width: 60%;
+  border-radius: 20px;
+  border: 1px solid gainsboro;
+  background-color: transparent;
+  position: relative;
+  margin-inline: 20%;
+}
+
+.search .submit-btn {
+  width: auto;
+  position: absolute;
+  right: 0;
+  padding: 3px 15px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  background: gainsboro;
+  opacity: 1;
+}
+
+.search .input-field:focus + button {
+  transform: scale(1.1);
+}
+
+.search .input-field:focus + button:hover {
+  background: rgb(197, 197, 197);
+}
+
+.admin.card legend h2 {
+  text-align: center;
+  font-size: clamp(20px, 2.3vw, 35px );
+  padding: 0px 20px;
+}
+
+.admin.card legend span {
+  padding-right: 10px;
+  font-size: 30px;
+}
+
+.entity.input-field {
+  border-radius: 7px;
+  width: 70%;
+}
+
+.entity.form {
+  margin-top: 3%;
+  flex-direction: column;
+  padding: 2%;
+  gap: 2vh;
+}
+
+.entity .input-set {
+  justify-content: space-between;
+  width: 50%;
+}
+
+.entity .submit-btn {
+  width: 20%;
+  margin-top: 2%;
+  font-size: 20px;
+}
+
+.admin-portal + .footer {
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+}
+
+.admin.card.dark-enabled .entity.form .input-field {
+  border: 1px solid rgba(220, 220, 220, 0.508);
+}
+
+.admin.card.dark-enabled .entity.form .submit-btn {
+  background: linear-gradient(90deg, rgba(28, 141, 255, 0.902) 0%, rgb(50, 45, 138) 100%);
+}
+
+.admin.card.dark-enabled .input-field:focus {
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 0px 2px #0080ffc6;
+}
+
+.admin.card.dark-enabled legend h2,
+.admin.card.dark-enabled legend span,
+.search .submit-btn {
+  color: #e3e3e3;
+}
+
+.admin.card.dark-enabled .search {
+  border: 1px solid rgb(60, 60, 60);
+}
+
+.admin.card.dark-enabled .search .input-field:focus + button:hover {
+  background-color: rgb(30, 30, 30);
+}
+
+.admin.card.dark-enabled .search .submit-btn {
+  background-color: rgb(50, 50, 50);
+}
+.admin.card.dark-enabled .search .submit-btn > span {
+  color: gainsboro;
+}
+
+.admin.card.dark-enabled {
+  border: 2px solid rgb(60, 60, 60);
+  backdrop-filter: blur(0px);
+}
+
+.admin-portal.dark-enabled > *,
+.admin-portal.dark-enabled > * > *,
+.admin-portal.dark-enabled > * > * > * > * {
+  color: var(--themeBgColor);
+} 
 
 /* MEDIA QUERIES */
 
