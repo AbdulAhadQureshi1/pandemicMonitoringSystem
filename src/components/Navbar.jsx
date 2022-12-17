@@ -38,7 +38,7 @@ export default function Navbar(props) {
       <span className={`material-symbols-outlined hamburger ${menuState}-ham ${themeColorSwitch()}`} onClick={toggleMenu}>close</span>
       <div className={`links flex ${menuState} ${themeColorSwitch()}`}>
         <Link to="/" className="link">Home</Link>
-        <a href="#stats" className="link">About</a>
+        <a href="#stats" className="link">Stats</a>
         <Link to="/PMS-Signup" className="link">Admin Portal</Link>
       </div>
     </div>
