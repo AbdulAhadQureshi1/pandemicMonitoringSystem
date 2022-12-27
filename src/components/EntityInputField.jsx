@@ -10,8 +10,8 @@ export default function EntityInputField(props) {
 
   return (
     <div className='input-set flex' >
-      <label className='font'>{`${columnName}` + '[Type]'}</label>
-      <input className='entity input-field font' key={columnName} value={props.value} onChange={handleChange} type={'text'} placeholder={`${columnName}`} />
+      <label className='font'>{`${columnName}`} - {` [${props.colType}]`}</label>
+      <input className='entity input-field font' key={columnName} value={props.value} onChange={handleChange} type={'text'} placeholder={`${columnName}`} required/>
     </div>
   )
 }

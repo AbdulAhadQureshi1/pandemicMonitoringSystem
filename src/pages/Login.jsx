@@ -1,6 +1,6 @@
 import React, {useContext, useRef, useState} from 'react'
 import { ThemeContext } from '../components/themeContext';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 export default function Login() {
 
@@ -17,9 +17,18 @@ export default function Login() {
   const nameRef = useRef()
   const passRef = useRef()
 
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(nameRef.current.value)
+    e.preventDefault()
+    if(nameRef.current.value !== 'AbdulAhad') {
+      setNameErr("Username not found!")
+      return;
+    }
+    if(passRef.current.value !== 'password') {
+      setPassErr("Wrong Password")
+      return;
+    }
+    navigate('/PMS-Admin-Portal', true)
   }
 
   return (

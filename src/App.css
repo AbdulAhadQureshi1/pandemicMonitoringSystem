@@ -135,6 +135,28 @@ body::-webkit-scrollbar-thumb
   content: '🦠';
 }
 
+.link.admin-link {
+  padding: 10px 10px;
+  margin-left: 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007FFF;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: 500ms;
+}
+
+.link.admin-link:hover {
+  background-color: #025fbc;
+  transition: 500ms;
+}
+
+.link.admin-link::after,
+.link.admin-link::before {
+  content: '';
+}
+
 /* DARK/LIGHT MODE STYLING  */
 
 .darkM, .lightM {
@@ -532,6 +554,22 @@ body::-webkit-scrollbar-thumb
   border: 2px solid var(--themeFgColor);
 }
 
+.logout-btn {
+  cursor: pointer;
+  padding: 15px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color:#007FFF;
+  margin-left: 10vw;
+  color: white;
+  transition: 500ms;
+}
+.logout-btn:hover {
+  background-color: #0052a5;
+  transition: 500ms;
+}
+
 .input-field {
   width: 91.6%;
   border-radius: 20px;
@@ -592,7 +630,7 @@ body::-webkit-scrollbar-thumb
 
 .entity.input-field {
   border-radius: 7px;
-  width: 70%;
+  width: 60%;
 }
 
 .entity.form {

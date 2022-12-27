@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import EntityInputField from '../components/EntityInputField';
 
-export default function InsertEntityForm() {
+export default function InsertEntityForm(props) {
 
-    const arr = ['Name', 'Area', 'Vaccinated', 'Carrier', 'Something'];
+    // const arr = ['Name', 'Area', 'Vaccinated', 'Carrier', 'Something'];
+    const arr = props.colNames;
+    const colTypes = props.colTypes;
 
-    // const [value, setValue] = useState('')
     const [value, setValue] = useState([])
 
     const handleChange = (val, columnName) => {
@@ -19,20 +20,26 @@ export default function InsertEntityForm() {
         setValue(value);
     }
 
+    const displayColumns = props.showTable;
+    const btnName = props.btnName;
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(value)
+        const msg = `Following data was ${btnName}ed: \n ${value.map((e, i, value)=>`${arr[i]} : e\n`)}`
+        alert(msg)
     }
 
 
     return (
         <form onSubmit={handleSubmit} className='entity form flex'>
             {
-                Array.apply(null, arr).map((e, i) => (
-                <EntityInputField colName={e} key={i} value={value[i]} onChange={handleChange} />
-                ))
+                displayColumns ? 
+                    Array.apply(null, arr).map((e, i) => (
+                        <EntityInputField colType={colTypes[i]} colName={e} key={i} value={value[i]} onChange={handleChange} />
+                    ))
+                : ''
             }
-            <button className='submit-btn' type='submit' >Insert</button>
+            <button className='submit-btn' type='submit'>{btnName}</button>
         </form>
     )
 }

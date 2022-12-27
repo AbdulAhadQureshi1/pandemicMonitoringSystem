@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import '../App.css'
 import ThemeProvider from './themeContext.jsx'
 import Home from '../pages/home';
@@ -13,10 +13,14 @@ import Login from '../pages/Login';
 function App() {
 
   const [containerRef, isVisible] = useElementOnScreen({
-    root: null,
-    rootMargin: "0px",
-    threshold: 1
-})
+      root: null,
+      rootMargin: "0px",
+      threshold: 1
+  })
+
+  useEffect(()=> {
+    localStorage.setItem('authenticated', 'false')
+  }, [])
 
   return (
     <ThemeProvider>

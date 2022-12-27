@@ -1,13 +1,14 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import {ThemeContext, UpdateTheme} from './themeContext'
 import { Link } from 'react-router-dom';
 
 export default function Navbar(props) {
 
+
   const darkMode = useContext(ThemeContext);
   const themeChange = useContext(UpdateTheme);
 
-  const [menuState, setMenuState] = React.useState('menu-close');
+  const [menuState, setMenuState] = useState('menu-close');
 
   function toggleMenu() {
     menuState==='menu-open' ? setMenuState('menu-close') : setMenuState('menu-open')
@@ -24,6 +25,7 @@ export default function Navbar(props) {
     return props.fill ? 'no-fill' : 'fill'
   }
 
+
   return (
     <div className={`navbar font flex ${themeColorSwitch()} ${fillProp()}`}>
       <Link to='/'>
@@ -38,8 +40,8 @@ export default function Navbar(props) {
       <span className={`material-symbols-outlined hamburger ${menuState}-ham ${themeColorSwitch()}`} onClick={toggleMenu}>close</span>
       <div className={`links flex ${menuState} ${themeColorSwitch()}`}>
         <Link to="/" className="link">Home</Link>
-        <a href="#stats" className="link">Stats</a>
-        <Link to="/PMS-Signup" className="link">Admin Portal</Link>
+        <Link to="/#stats" className="link">Stats</Link>
+        <Link to={'/PMS-Login'} className="link admin-link flex">Admin Portal</Link>
       </div>
     </div>
   )
