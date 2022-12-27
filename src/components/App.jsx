@@ -18,9 +18,6 @@ function App() {
       threshold: 1
   })
 
-  useEffect(()=> {
-    localStorage.setItem('authenticated', 'false')
-  }, [])
 
   return (
     <ThemeProvider>
