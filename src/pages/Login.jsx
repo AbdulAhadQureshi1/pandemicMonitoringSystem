@@ -44,6 +44,10 @@ export default function Login() {
               <input type={'password'} ref={passRef} placeholder='Password' required/>
               <p className={`error font`}>{passErr}</p>
             </div>
+            <div className='flex remember-me font'>
+              <input type={'checkbox'}/>
+              <span>Remember Me</span>
+            </div>
               <button className='font submit-btn' type='submit'>Submit</button>
           </form>
           <footer className='font'>Don't have an account?

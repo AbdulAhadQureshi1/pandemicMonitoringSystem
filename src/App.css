@@ -503,6 +503,15 @@ body::-webkit-scrollbar-thumb
   gap: 6%;
 }
 
+.remember-me {
+  width: 50%;
+  font-size: 15px;
+}
+
+.remember-me input {
+  width: 15%;
+}
+
 .card.dark-enabled {
   color: var(--themeBgColor);
   background-color: rgba(44, 44, 44, 0.45);
@@ -512,7 +521,8 @@ body::-webkit-scrollbar-thumb
 }
 
 .card.dark-enabled > *,
-.card.dark-enabled > * > * {
+.card.dark-enabled > * > *,
+.card.dark-enabled > * > * > * {
   color: var(--themeBgColor);
 }
 

@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react'
 import {ThemeContext, UpdateTheme} from './themeContext'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link'
 
 export default function Navbar(props) {
@@ -26,6 +26,9 @@ export default function Navbar(props) {
     return props.fill ? 'no-fill' : 'fill'
   }
 
+  const scrollToStats = () => {
+    document.querySelector(`#stats`).scrollIntoView({behavior: 'smooth'})
+  }
 
   return (
     <div className={`navbar font flex ${themeColorSwitch()} ${fillProp()}`}>
@@ -41,7 +44,7 @@ export default function Navbar(props) {
       <span className={`material-symbols-outlined hamburger ${menuState}-ham ${themeColorSwitch()}`} onClick={toggleMenu}>close</span>
       <div className={`links flex ${menuState} ${themeColorSwitch()}`}>
         <Link to={"/"} className="link">Home</Link>
-        <Link to={"/l#stats"} className="link">Stats</Link>
+        <Link to={"/"} onClick={scrollToStats} className="link">Stats</Link>
         <Link to={'/PMS-Login'} className="link admin-link flex">Admin Portal</Link>
       </div>
     </div>
