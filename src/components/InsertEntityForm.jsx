@@ -25,7 +25,7 @@ export default function InsertEntityForm(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const msg = `Following data was ${btnName}ed: \n ${value.map((e, i, value)=>`${arr[i]} : e\n`)}`
+        const msg = `Following data was ${btnName}ed Successfully: \n ${value.map((e, i, value)=>`${arr[i]} : e\n`)}`
         alert(msg)
     }
 

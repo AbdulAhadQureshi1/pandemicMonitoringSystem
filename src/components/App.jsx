@@ -21,7 +21,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <Navbar fill={isVisible}/>
+        <Navbar fill={isVisible}/>
         <div ref={containerRef} className='useless'></div>
         <Routes>
           <Route path='/' element={<Home/>} />

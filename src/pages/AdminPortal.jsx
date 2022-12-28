@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom';
 
 export default function AdminPortal() {
 
+  const [colNames, setColNames] = useState([])
+  const [colTypes, setColTypes] = useState([])
+
   const navigate = useNavigate();
 
   const darkMode = useContext(ThemeContext);
@@ -21,24 +24,34 @@ export default function AdminPortal() {
 
   const handleSearch = (e) => {
     e.preventDefault();
+
+    // tell which form was searched!
     if(e.target.name === 'insertUpdateTable'){
-      if(searchTableRef.current.value === 'Person') {
-        setTableFound(true);
-        return;
-      }
-      alert('Table Not Found!')
+      setTableFound(true);
     }
     if(e.target.name === 'deleteTable') {
-      if(searchDeleteTableRef.current.value === 'Person') {
-        setDelTableFound(true);
-        return;
-      }
-      alert('Table Not Found!')
+      setDelTableFound(true);
     }
-  }
+    
+    // check which table was searched!
+    if(searchTableRef.current.value==='Person' || searchDeleteTableRef.current.value==='Person') {
+      setColNames(['id', 'FirstName', 'LastName', 'Age', 'Address-Id', 'Family-Id']);
+      setColTypes(['Number', 'Text', 'Text', 'Number', 'Number', 'Number']);
+      return;
+    }
+    else if(searchTableRef.current.value==='locked_down_area' || searchDeleteTableRef.current.value==='locked_down_area') {
+      setColNames(['Address_id', 'Date_of_lockdown_start', 'Date_of_lockdown_end', 'Threat_level']);
+      setColTypes(['Number', 'Text', 'Text', 'Number']);
+      return;
+    }
+    else if(searchTableRef.current.value==='vaccination_center' || searchDeleteTableRef.current.value==='vaccination_center') {
+      setColNames(['id', 'Name', 'Address']);
+      setColTypes(['Number', 'Text', 'Text']);
+      return;
+    }
 
-  let colNames = ['id', 'FirstName', 'LastName', 'Age', 'Address-Id', 'Family-Id'];
-  let colTypes = ['Number', 'Text', 'Text', 'Number', 'Number', 'Number'];
+    alert('Table Not Found!')
+  }
   
 
   const handleLogout = () => {
