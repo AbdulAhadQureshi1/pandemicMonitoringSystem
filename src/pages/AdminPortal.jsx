@@ -88,7 +88,6 @@ export default function AdminPortal() {
       <fieldset className={`admin card ${themeColorSwitch()}`}>
         <legend>
           <h2 className='font'>
-            {/* <span className="material-symbols-outlined">edit</span> */}
             <img src='../public/edit.png' className='edit-icon' width={'40px'}/>
             Delete Records
           </h2>
