@@ -48,7 +48,7 @@ export default function Login() {
               <input type={'checkbox'}/>
               <span>Remember Me</span>
             </div>
-              <button className='font submit-btn' type='submit'>Submit</button>
+              <button className='font submit-btn' type='submit'>Login</button>
           </form>
           <footer className='font'>Don't have an account?
             <Link to='/PMS-Signup' className='login-link'>  Signup</Link>

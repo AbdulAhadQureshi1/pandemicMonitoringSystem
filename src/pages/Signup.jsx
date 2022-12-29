@@ -39,7 +39,7 @@ export default function Signup() {
               <input type={'password'} ref={passRef} placeholder='Password' required/>
               <p className={`error font`}>{passErr}</p>
             </div>
-              <button className='font submit-btn' type='submit'>Submit</button>
+              <button className='font submit-btn' type='submit'>Signup</button>
           </form>
           <footer className='font'>Already have an account?
             <Link to='/PMS-Login' className='login-link'>  Login</Link>

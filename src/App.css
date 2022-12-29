@@ -672,6 +672,71 @@ body::-webkit-scrollbar-thumb
   transform: translateY(100%);
 }
 
+/* ALERT CARD */
+
+.alert-card {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-direction: column;
+  width: 50vw;
+  height: 50vh;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  gap: 10%;
+  padding: 7%;
+}
+
+.alert-card .header {
+  gap: 10px;
+  font-size: 20px;
+}
+
+.alert-card .close-btn {
+  padding: 5px 10px;
+  background: #DCE35B;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #45B649, #DCE35B);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #45B649, #DCE35B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: none;
+  border-radius: 7px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.alert-card .close-btn:hover {
+  transform: scale(1.1);
+  transition: 300ms;
+}
+
+table {
+  border:1px solid #b3adad;
+  border-collapse:collapse;
+  padding:15px;
+}
+table th {
+  border:1px solid #b3adad;
+  padding: 10px;
+  background: #f0f0f0;
+  color: #313030;
+}
+table td {
+  border:1px solid #b3adad;
+  text-align:center;
+  padding:10px;
+  background: #ffffff;
+  color: #313030;
+}
+
+.alert-card.show {
+  display: flex;
+}
+
 .admin.card.dark-enabled .entity.form .input-field {
   border: 1px solid rgba(220, 220, 220, 0.508);
 }
