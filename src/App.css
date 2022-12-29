@@ -638,6 +638,11 @@ body::-webkit-scrollbar-thumb
   font-size: 30px;
 }
 
+.admin.card .edit-icon {
+  transform: translateY(15%);
+  margin-right: 20px;
+}
+
 .entity.input-field {
   border-radius: 7px;
   width: 60%;

@@ -39,7 +39,7 @@ export default function InsertEntityForm(props) {
                     ))
                 : ''
             }
-            <button className='submit-btn' type='submit'>{btnName}</button>
+            <button className='submit-btn' type='submit' disabled={arr.length===0}>{btnName}</button>
         </form>
     )
 }
