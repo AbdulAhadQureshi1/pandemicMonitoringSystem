@@ -71,7 +71,7 @@ export default function AdminPortal() {
       <fieldset className={`admin card ${themeColorSwitch()}`}>
         <legend>
           <h2 className='font'>
-            <img src='../public/edit.png' className='edit-icon' width={'40px'}/>
+            <img src='https://i.ibb.co/93SXkDz/edit.png' className='edit-icon' width={'40px'}/>
             Insert/Update Records
           </h2>
         </legend>
@@ -88,7 +88,7 @@ export default function AdminPortal() {
       <fieldset className={`admin card ${themeColorSwitch()}`}>
         <legend>
           <h2 className='font'>
-            <img src='../public/edit.png' className='edit-icon' width={'40px'}/>
+            <img src='https://i.ibb.co/93SXkDz/edit.png' className='edit-icon' width={'40px'}/>
             Delete Records
           </h2>
         </legend>
