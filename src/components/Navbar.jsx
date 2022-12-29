@@ -1,7 +1,6 @@
 import React, {useContext, useState} from 'react'
 import {ThemeContext, UpdateTheme} from './themeContext'
 import { Link, Navigate } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link'
 
 export default function Navbar(props) {
 
