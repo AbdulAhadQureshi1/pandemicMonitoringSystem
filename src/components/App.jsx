@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import '../App.css'
 import ThemeProvider from './themeContext.jsx'
 import Home from '../pages/home';
@@ -9,6 +9,7 @@ import {Routes, Route} from 'react-router-dom'
 import AdminPortal from '../pages/AdminPortal';
 import Signup from '../pages/Signup';
 import Login from '../pages/Login';
+
 
 function App() {
 

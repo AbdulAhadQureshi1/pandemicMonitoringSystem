@@ -88,7 +88,8 @@ export default function OverallStats() {
   return (
     <div className={`overall-section stats flex ${themeColorSwitch()}`}>
       <h1 ref={containerRef} className={`stats-heading font`}>Overall Statistics</h1>
-      <div className={`graphs flex ${animateIn()}`}>
+      {/* <div className={`graphs flex ${animateIn()}`}> */}
+      <div className={`graphs flex`}>
         <div className={`graph graph-1 flex`}>
           <Doughnut datasetIdKey='daily-recoveries' data={dataRecovered} />
           <label className='meter font'>{`${recoveredPercentage}%`}</label>

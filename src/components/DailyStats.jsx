@@ -88,7 +88,8 @@ export default function DailyStats() {
   return (
     <div className={`stats flex ${themeColorSwitch()}`} id='stats'>
       <h1 ref={containerRef} className={`stats-heading font`}>Today's Statistics</h1>
-      <div className={`graphs flex ${animateIn()}`}>
+      {/* <div className={`graphs flex ${animateIn()}`}> */}
+      <div className={`graphs flex`}>
         <div className={`graph graph-1 flex`}>
           <Doughnut datasetIdKey='daily-recoveries' data={dataRecovered} />
           <label className='meter font'>{`${recoveredPercentage}%`}</label>
