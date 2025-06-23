@@ -1,6 +1,6 @@
 # pandemicMonitoringSystem
  
- -install vite
- -install chart.js for react
- -install react router
+ - install vite
+ - install chart.js for react
+ - install react router
  
